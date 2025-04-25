@@ -1,0 +1,45 @@
+.main-section{
+   margin: 12rem;
+    justify-content: center;
+    align-items: baseline;
+    text-align: center;
+}
+
+/* Sign In */
+.signin-section{
+    margin: 5rem 12rem 12rem 12rem;
+    justify-content: center;
+    align-items: baseline;
+}
+
+/* Create Page */
+.create-header{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.price-sec{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+}
+
+.create-sec{
+    margin: 2rem 12rem 12rem 12rem;
+}
+
+
+/* Product */
+.product-card-lay{
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    /* margin-bottom: 1rem; */
+}
+
+.filter-prod-header{
+    margin-bottom: 2rem;
+}
