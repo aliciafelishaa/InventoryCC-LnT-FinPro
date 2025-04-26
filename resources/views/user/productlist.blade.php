@@ -58,14 +58,17 @@
                 <h2>Daftar Produk</h2>
                 <div class="product-card-lay">
                     @forelse ($product as $prod)
-                        <div class="card" style="width: 18rem;">
+                        <div class="card " style="width: 18rem;">
                             <img src="{{asset('storage/' . $prod->product_photo)}}" class="card-img-top" alt="{{$prod->product_name}}">
                             <div class="card-body">
                             <h5 class="card-title">{{$prod->product_name}}</h5>
                             <p class="card-text">Harga: Rp{{$prod->product_price}}</p>
                             <p class="card-text">Stok: {{$prod->product_quantity}}</p>
                             <p class="card-text">Kategori: {{$prod->category->category_name}}</p>
-                            <button class="btn btn-primary" type="submit">Add to Cart</button>
+                            <form action="{{route('cart.add', $prod->id)}}" method="POST">
+                                @csrf
+                                <button class="btn btn-primary" type="submit">Add to Cart</button>
+                            </form>
                         </div>
                     @empty
                     <p class="alert alert-danger">Product is Empty</p>

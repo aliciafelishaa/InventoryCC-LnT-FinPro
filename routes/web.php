@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartsController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\CheckRole;
 use Illuminate\Support\Facades\Route;
@@ -38,12 +39,13 @@ Route::delete('/delete/{id}', [InventoryController::class, 'deleteProduct'])->na
 Route::get('/list-product-user', [UserController::class, 'viewProduct'])->name('product.view.all.user');
 Route::get('/filter-user/{id}', [UserController::class, 'viewProductByCategory'])->name('product.view.filter.user');
 Route::get('/cart-page', [CartsController::class, 'cartPage'])->name('cart.page');
-//
-Route::middleware(['auth'])->group(function () {
-    Route::get('/cart', [CartsController::class, 'index'])->name('cart.index');
-    Route::get('/cart/add/{productId}', [CartsController::class, 'add'])->name('cart.add');
-    Route::post('/cart/update/{cartId}', [CartsController::class, 'update'])->name('cart.update');
-    Route::get('/cart/remove/{cartId}', [CartsController::class, 'remove'])->name('cart.remove');
-    Route::get('/cart/clear', [CartsController::class, 'clear'])->name('cart.clear');
-});
+
+//Cart
+Route::post('/cart-add/{id}', [CartsController::class, 'cartAdd'])->name('cart.add');
+Route::patch('/cart/update/{id}', [CartsController::class, 'cartUpdate'])->name('cart.update');
+
+//Invoice
+Route::get('/invoice/generate', [InvoiceController::class, 'showForm'])->name('invoice.form');
+Route::post('/invoice/generates', [InvoiceController::class, 'store'])->name('invoice.store');
+
 

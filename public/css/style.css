@@ -43,3 +43,9 @@
 .filter-prod-header{
     margin-bottom: 2rem;
 }
+
+@media (min-width: 1025px) {
+    .h-custom {
+    height: 100vh !important;
+    }
+}
